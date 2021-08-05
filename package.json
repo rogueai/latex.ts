@@ -1,10 +1,10 @@
 {
-  "name": "latex.js",
-  "description": "JavaScript LaTeX to HTML5 translator",
-  "version": "0.12.4",
+  "name": "latex.ts",
+  "description": "TypeScript LaTeX to HTML5 translator",
+  "version": "0.0.1",
   "author": {
-    "name": "Michael Brade",
-    "email": "brade@kde.org"
+    "name": "RogueAI",
+    "email": "rogueai@users.noreply.github.com"
   },
   "keywords": [
     "pegjs",
@@ -112,13 +112,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michael-brade/LaTeX.js.git"
+    "url": "git+https://github.com/rogueai/LaTeX.ts.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/michael-brade/LaTeX.js/issues"
+    "url": "https://github.com/rogueai/LaTeX.ts/issues"
   },
-  "homepage": "https://latex.js.org",
+  "homepage": "",
   "engines": {
     "node": ">= 14.0"
   }

@@ -14,5 +14,4 @@ let generator = new ljs.HtmlGenerator({ hyphenate: true })
 let doc = ljs.parse(latex, { generator: generator }).htmlDocument('file:///home/mzugno/Git/LaTeX.js/dist/')
 
 // console.log(doc.documentElement.outerHTML)
-
 writeFileSync('test.html', doc.documentElement.outerHTML);
