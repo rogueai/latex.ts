@@ -12,7 +12,7 @@ import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 const prod = process.env.NODE_ENV === "production"
 
 export default [{
-    input: "src/index.mjs",
+    input: "src/index.ts",
     plugins: [
         // resolve before pegjs so that the filter in pegjs has less left to do
         resolve({
@@ -23,13 +23,13 @@ export default [{
         dynamicImportVars({
             include: "*.ts"
         }),
-        pegjs({
-            plugins: [ignoreInfiniteLoop],
-            target: "commonjs",
-            exportVar: "parser",
-            format: "bare",
-            trace: false
-        }),
+        // pegjs({
+        //     plugins: [ignoreInfiniteLoop],
+        //     target: "commonjs",
+        //     exportVar: "parser",
+        //     format: "bare",
+        //     trace: false
+        // }),
         commonjs(),
         typescript({
             module: "esnext",
