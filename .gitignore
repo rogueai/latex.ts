@@ -12,6 +12,5 @@
 .idea/
 # Temporary exclusions
 docs/
-test/
 .circleci/
 *.ls
