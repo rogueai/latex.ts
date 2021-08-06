@@ -1,6 +1,6 @@
 const {readFileSync, writeFileSync} = require("fs");
 
-const ljs = require('./dist/latex.js')
+const ljs = require('../dist/latex.js')
 const { createHTMLWindow } = require('svgdom')
 
 global.window = createHTMLWindow()
