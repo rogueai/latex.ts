@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fixtures: Macros Macro: 'empty.tex' renders correctly 1`] = `"<div class=\\"body\\"><p>some text ​ inside.</p></div>"`;

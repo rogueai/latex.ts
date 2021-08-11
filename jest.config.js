@@ -2,5 +2,6 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  testMatch: [ "**/test/**/*.(spec|test).[jt]s?(x)" ]
+  testMatch: [ "**/test/**/*.(spec|test).[jt]s?(x)" ],
+  moduleDirectories: ["node_modules", "src"]
 };

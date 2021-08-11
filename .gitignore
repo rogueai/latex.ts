@@ -11,6 +11,4 @@
 /.nyc_output/
 .idea/
 # Temporary exclusions
-docs/
-.circleci/
 *.ls

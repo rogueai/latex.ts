@@ -1,14 +1,12 @@
 import {Length, lengthFactory, TLength} from './types';
 import {LaTeX as Macros} from "./latex.ltx";
 import {diacritics, symbols} from './symbols';
-import {LocationRange} from "pegjs";
-import {PEG} from 'pegjs';
+import {Location, LocationRange} from "peggy";
+import {GrammarError} from 'peggy';
 import {SVG, registerWindow} from '@svgdotjs/svg.js';
 import {Base} from "./documentclasses/base";
 
 import katex from 'katex/dist/katex';
-
-type SyntaxError = PEG.SyntaxError
 
 export class Stack<T> extends Array<T> {
 
@@ -144,9 +142,10 @@ export abstract class Generator {
 
   location(): LocationRange {
     // FIXME return this.error("location function not set!");
-    return new class implements PEG.LocationRange {
-      end: PEG.Location;
-      start: PEG.Location;
+    return new class implements LocationRange {
+      end: Location;
+      start: Location;
+      source: any;
     }
   }
 
