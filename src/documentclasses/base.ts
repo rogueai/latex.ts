@@ -1,7 +1,7 @@
 import {Generator} from "../generator";
 
 export abstract class Base {
-  args = {
+  _args = {
     'part': ['V', 's', 'X', 'o?', 'g'],
     'section': ['V', 's', 'X', 'o?', 'g'],
     'subsection': ['V', 's', 'X', 'o?', 'g'],
@@ -113,6 +113,10 @@ export abstract class Base {
     this.g.setLength('marginparwidth', marginparwidth);
   }
 
+  get args() {
+    return this._args;
+  }
+  
   get contentsname() {
     return ["Contents"];
   }

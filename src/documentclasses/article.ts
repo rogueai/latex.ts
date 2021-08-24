@@ -3,15 +3,13 @@ import {Generator} from "../generator";
 
 export class Article extends Base {
   
-  
   constructor(generator: Generator, options) {
     super(generator, options);
     this.g.setCounter('secnumdepth', 3);
     this.g.setCounter('tocdepth', 3);
-    this.args['tableofcontents'] = ['V'];
-    this.args['abstract'] = ['V'];
-    this.args['tableofcotents'] = ['V'];
-    this.args['appendix'] = ['V'];
+    this._args['tableofcontents'] = ['V'];
+    this._args['abstract'] = ['V'];
+    this._args['appendix'] = ['V'];
   }
  
   get css() {
@@ -44,6 +42,8 @@ export class Article extends Base {
   appendix(){
     this.g.setCounter('section', 0);
     this.g.setCounter('subsection', 0);
+    // TODO FIXME @see Report.ts for a better approach
+    // thesection is defined in Base.ts
     this['thesection'] = function(){
       return [this.g.Alph(this.g.counter('section'))];
     };

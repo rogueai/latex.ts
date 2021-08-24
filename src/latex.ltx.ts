@@ -1,6 +1,6 @@
 // TODO FIXME
 import {Generator} from "./generator";
-import {merge, mergeWith} from 'lodash';
+import {merge} from 'lodash';
 import {symbols} from './symbols';
 
 import {Length, Vector} from './types';
@@ -1292,76 +1292,55 @@ export class LaTeX {
   }
 
   documentclass(options, documentclass, version) {
-    // TODO FIXME typescript implementation
-    var Class, importDocumentclass, this$ = this;
     this['documentclass'] = () => {
       this.g.error("Two \\documentclass commands. The document may only declare one class.");
     };
-    Class = builtinDocumentclasses.default[documentclass];
     let args = this._args;
-    importDocumentclass = () => {
-      this$.g.documentClass = new Class(this$.g, options);
-      merge(this$, this$.g.documentClass);
-      merge(args, Class.args);
+    let importDocumentclass = () => {
+      let dc = new Class(this.g, options);
+      this.g.documentClass = dc;
+      merge(this, dc);
+      merge(args, dc.args);
     };
+    let Class = builtinDocumentclasses.default[documentclass];
     if (!Class) {
-      // TODO FIXME promise is resolved AFTER HtmlGenerator#applyLengthsAndGemotryToDom
-      import('./documentclasses/' + documentclass).then((Export) => {
-        Class = Export['default'] || Export[Object.getOwnPropertyNames(Export)[0]];
-        importDocumentclass();
-      })['catch']((e) => {
-        return console.error("error loading documentclass \"" + documentclass + "\": " + e);
-      });
-    } else {
-      importDocumentclass();
+      // TODO FIXME we cannot use import() as promise is resolved AFTER HtmlGenerator#applyLengthsAndGemotryToDom
+      let Export = require('./documentclasses/' + documentclass);
+      Class = Export['default'] || Export[Object.getOwnPropertyNames(Export)[1]];
     }
+    importDocumentclass();
+
   }
 
   usepackage(opts, packages, version) {
-    // TODO FIXME refactor in typescript
-    var options, i$, len$, pkg, Package, importPackage, e, this$ = this;
     // TODO FIXME documentClass is handled first as a string, then as a class
-    options = Object.assign({}, this.g.documentClass['options'], opts)
+    let options = Object.assign({}, this.g.documentClass['options'], opts)
     let args = this._args;
-    for (i$ = 0, len$ = packages.length; i$ < len$; ++i$) {
-      pkg = packages[i$];
+    packages.forEach((pkg) => {
       if (this.providedPackages.includes(pkg)) {
-        continue;
+        return;
       }
       try {
-        Package = builtinPackages.default[pkg];
-        importPackage = fn$;
-        if (!Package) {
-          import("./packages/" + pkg).then(fn1$)['catch'](fn2$);
-        } else {
-          importPackage();
+        let importPackage = () => {
+          let p = new Package(this.g, options);
+          merge(this, p);
+          merge(args, p.args);
+          if (p.symbols != null) {
+            p.symbols.forEach((value, key) => {
+              symbols.set(key, value);
+            });
+          }
         }
-      } catch (e$) {
-        e = e$;
-        console.error("error loading package \"" + pkg + "\": " + e);
+        let Package = builtinPackages.default[pkg];
+        if (!Package) {
+          let Export = require("./packages/" + pkg);
+          Package = Export['default'] || Export[Object.getOwnPropertyNames(Export)[1]];
+        }
+        importPackage();
+      } catch (e) {
+        console.warn("error loading package \"" + pkg + "\": " + e);
       }
-    }
-
-    function fn$() {
-      var ref$;
-      let p = new Package(this$.g, options);
-      merge(this$, p);
-      merge(args, p.args);
-      if ((ref$ = p.symbols) != null) {
-        ref$.forEach((value, key) => {
-          return symbols.set(key, value);
-        });
-      }
-    }
-
-    function fn1$(Export) {
-      Package = Export['default'] || Export[Object.getOwnPropertyNames(Export)[0]];
-      importPackage();
-    }
-
-    function fn2$(e) {
-      throw e;
-    }
+    })
   }
 
   includeonly(filelist) {
