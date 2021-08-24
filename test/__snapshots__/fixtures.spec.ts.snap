@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fixtures Counters clear inner counters 1`] = `
+"<div class=\\"body\\">
+    <p>5 6 1 3</p>
+    <p>6 6 1 3</p>
+    <p>0 0 2 0</p>
+    <p>0 1 2 0</p>
+</div>"
+`;
+
+exports[`Fixtures Counters counters 1`] = `
+"<div class=\\"body\\">
+    <p>1: i</p>
+    <p>-8</p>
+    <p>8: VIII</p>
+    <p>8</p>
+    <p>0 ‡‡</p>
+</div>"
+`;
+
+exports[`Fixtures Groups brackets do not need to be balanced 1`] = `
+"<div class=\\"body\\">
+    <p>test[ t]]ext​ more</p>
+</div>"
+`;
+
+exports[`Fixtures Groups groups need to be balanced 1`] = `
+"<div class=\\"body\\">
+    <p>test text with another two​ groups ​ and more</p>
+</div>"
+`;
+
+exports[`Fixtures Groups groups overlapping paragraphs 1`] = `
+"<div class=\\"body\\">
+    <p>Here is some unsuspecting text in a paragraph. This paragraph ​ starts a group.</p>
+    <p>But then suddenly a new paragraph begins... ​ and misery with it.</p>
+    <p>It is also possible to have a</p>
+    <p>par command​ in a group.</p>
+</div>"
+`;
+
+exports[`Fixtures Macros brackets in optional arguments 1`] = `
+"<div class=\\"body\\">
+    <p>-t]t-+ext+ more</p>
+</div>"
+`;
+
+exports[`Fixtures Macros custom macros with a mandatory arguments mixed with newlines 1`] = `
+"<div class=\\"body\\">
+    <p>some text +again+-<br>-</p>
+    <p>more​ in a new paragraph.</p>
+</div>"
+`;
+
+exports[`Fixtures Macros custom macros with a mandatory arguments mixed with spaces 1`] = `
+"<div class=\\"body\\">
+    <p>some text +with a macro+</p>
+</div>"
+`;
+
+exports[`Fixtures Macros custom macros with an optional argument 1`] = `
+"<div class=\\"body\\">
+    <p>some text -with a macro-</p>
+</div>"
+`;
+
+exports[`Fixtures Macros custom macros with optional and mandatory arguments 1`] = `
+"<div class=\\"body\\">
+    <p>some text, +mandatory arg+-, -+more mandatory+ inside.</p>
+</div>"
+`;
+
+exports[`Fixtures Macros custom macros without arguments 1`] = `
+"<div class=\\"body\\">
+    <p>some text ​ inside.</p>
+</div>"
+`;
+
+exports[`Fixtures Math simple inline math 1`] = `
+"<div class=\\"body\\">
+    <p>A basic parabola is <span class=\\"katex\\"><span class=\\"katex-mathml\\"><math xmlns=\\"http://www.w3.org/1998/Math/MathML\\">
+                    <semantics>
+                        <mrow>
+                            <mi>y</mi>
+                            <mo>=</mo>
+                            <msup>
+                                <mi>x</mi>
+                                <mn>2</mn>
+                            </msup>
+                        </mrow>
+                        <annotation encoding=\\"application/x-tex\\">y = x^2</annotation>
+                    </semantics>
+                </math></span><span class=\\"katex-html\\" aria-hidden=\\"true\\"><span class=\\"base\\"><span class=\\"strut\\" style=\\"height: 0.625em; vertical-align: -0.19444em;\\"></span><span style=\\"margin-right: 0.03588em;\\" class=\\"mord mathnormal\\">y</span><span class=\\"mspace\\" style=\\"margin-right: 0.2777777777777778em;\\"></span><span class=\\"mrel\\">=</span><span class=\\"mspace\\" style=\\"margin-right: 0.2777777777777778em;\\"></span></span><span class=\\"base\\"><span class=\\"strut\\" style=\\"height: 0.8141079999999999em; vertical-align: 0em;\\"></span><span class=\\"mord\\"><span class=\\"mord mathnormal\\">x</span><span class=\\"msupsub\\"><span class=\\"vlist-t\\"><span class=\\"vlist-r\\"><span class=\\"vlist\\" style=\\"height: 0.8141079999999999em;\\"><span class=\\"\\" style=\\"top: -3.063em; margin-right: 0.05em;\\"><span class=\\"pstrut\\" style=\\"height: 2.7em;\\"></span><span class=\\"sizing reset-size6 size3 mtight\\"><span class=\\"mord mtight\\">2</span></span></span></span></span></span></span></span></span></span></span>. More text afterwards.</p>
+</div>"
+`;
+
+exports[`Fixtures Preamble document with a preamble 1`] = `"<div class=\\"body\\"></div>"`;
+
+exports[`Fixtures Sectioning a chapter 1`] = `
+"<div class=\\"body\\">
+    <h1 id=\\"sec-1\\">
+        <div>Chapter 1</div>A Chapter
+    </h1>
+    <p>Then the text follows.</p>
+    <h1 id=\\"sec-2\\">
+        <div>Chapter 2</div>A Chapter
+    </h1>
+    <p>Then the text follows.</p>
+</div>"
+`;
+
+exports[`Fixtures Symbols latex symbol 1`] = `
+"<div class=\\"body\\">
+    <p>©</p>
+</div>"
+`;
+
+exports[`Fixtures Symbols predefined symbols 1`] = `
+"<div class=\\"body\\">
+    <p>…</p>
+</div>"
+`;
+
+exports[`Fixtures Symbols tex carets 1`] = `
+"<div class=\\"body\\">
+    <p>20&nbsp;℃</p>
+    <p>w x vskip</p>
+</div>"
+`;
+
+exports[`Fixtures Symbols tex char 1`] = `
+"<div class=\\"body\\">
+    <p>b &nbsp;</p>
+</div>"
+`;
