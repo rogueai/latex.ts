@@ -36,7 +36,7 @@ export abstract class Base {
     // \documentclass[12pt]{article}
     this.g.setLength('paperheight', new this.g.length(11, "in"));
     this.g.setLength('paperwidth', new this.g.length(8.5, "in"));
-    this.g.setLength('@@size', new this.g.length(14, "pt"));
+    this.g.setLength('@@size', new this.g.length(10, "pt"));
 
     for (let opt in this.options) {
       opt = Object.keys(opt)[0];

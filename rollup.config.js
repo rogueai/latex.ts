@@ -1,10 +1,10 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import pegjs from "./lib/rollup-plugin-pegjs";
+// import pegjs from "./lib/rollup-plugin-pegjs";
 import {terser} from "rollup-plugin-terser";
 import visualizer from 'rollup-plugin-visualizer';
-import ignoreInfiniteLoop from './lib/pegjs-no-infinite-loop.js';
+// import ignoreInfiniteLoop from './lib/peggy-no-infinite-loop.js';
 
 
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';

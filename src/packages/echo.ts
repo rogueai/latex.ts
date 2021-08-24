@@ -1,5 +1,3 @@
-import * as he from 'he';
-
 export  class Echo {
 
   args = {};
@@ -16,7 +14,11 @@ export  class Echo {
   gobbleO(){
     return [];
   }
-
+  
+  echoO(o){
+    return ["-", o, "-"];
+  }
+  
   echoOGO(o1, g, o2){
     let x$ = [];
     if (o1) {

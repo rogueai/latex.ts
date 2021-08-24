@@ -1,12 +1,10 @@
 import {Generator} from "./generator";
-import {ligatures, diacritics} from './symbols';
-
-import {SVG} from '@svgdotjs/svg.js';
+import {diacritics, ligatures} from './symbols';
 import katex from 'katex/dist/katex';
 import Hypher from 'hypher/lib/hypher';
 import * as hEn from 'hyphenation.en-us';
 import * as he from 'he';
-import {flattenDeep, compact} from 'lodash';
+import {compact, flattenDeep} from 'lodash';
 import {Length} from "./types";
 
 he.decode.options.strict = true;
@@ -128,7 +126,7 @@ export class HtmlGenerator extends Generator {
     }
   }
 
-  htmlDocument(baseURL) {
+  htmlDocument(baseURL?) {
     var doc, charset, ref$, base;
     doc = document.implementation.createHTMLDocument(this.documentTitle);
     charset = document.createElement("meta");
@@ -181,7 +179,7 @@ export class HtmlGenerator extends Generator {
       el.appendChild(createStyleSheet("css/katex.css"));
       // TODO FIXME
       // el.appendChild(createStyleSheet(this.documentClass.css));
-      el.appendChild(createStyleSheet(`css/${this.documentClass}.css`));
+      el.appendChild(createStyleSheet(`${this.documentClass.css}`));
       for (i$ = 0, len$ = (ref$ = this._options.styles).length; i$ < len$; ++i$) {
         style = ref$[i$];
         el.appendChild(createStyleSheet(style));
